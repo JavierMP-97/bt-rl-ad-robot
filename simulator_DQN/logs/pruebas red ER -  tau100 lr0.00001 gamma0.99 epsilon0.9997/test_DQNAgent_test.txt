@@ -1,0 +1,2 @@
+episode,ticks,acum_reward,avg_reward
+episode,ticks,acum_reward,avg_reward

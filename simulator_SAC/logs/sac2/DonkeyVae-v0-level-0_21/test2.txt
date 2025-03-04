@@ -1,0 +1,10 @@
+model,avg_reward,avg_length,passed_test
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_143.pkl,2177.3276142279306,2081.0,1
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_150.pkl,3053.8055656751,3000.0,3
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_203.pkl,3099.434452096621,3000.0,3
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_214.pkl,3124.3410834471383,3000.0,3
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_216.pkl,3118.6519910891852,3000.0,3
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_150.pkl,3056.9651964108148,3000.0,3
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_203.pkl,2723.5435012578964,2647.3333333333335,2
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_214.pkl,2676.1534439722695,2585.3333333333335,2
+logs\sac\DonkeyVae-v0-level-0_21\DonkeyVae-v0-level-0_best_216.pkl,2699.0948947270713,2611.6666666666665,2

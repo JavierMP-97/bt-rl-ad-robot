@@ -1,0 +1,2 @@
+episode,ticks,epsilon,loss,acum_reward,avg_reward,total_ticks
+episode,ticks,epsilon,loss,acum_reward,avg_reward,total_ticks

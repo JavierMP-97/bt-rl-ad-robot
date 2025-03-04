@@ -1,0 +1,2 @@
+episode,ticks,acum_reward,capped_acum_reward,avg_reward,total_ticks
+0,225,223.2879329919815,0,0.9923908132976956,225
