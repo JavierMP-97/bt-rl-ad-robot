@@ -25,7 +25,7 @@ With all the knowledge gained from the previous steps, I attempted to train and 
 ## Notes  
 The experiment logs are included, so you can relive my journey of trial and error. However, the models and datasets are not included, as they are simply too large for the repository. While the project doesn’t quite work in its current form, it’s a testament to the learning process, the inevitable setbacks, and the small victories that made this journey worthwhile.
 
-## 📄 Publications  
+## Publications  
 
 **Bachelor’s Thesis**: [Deep Reinforcement Learning for Autonomous Driving](https://hdl.handle.net/10016/30350)
 
