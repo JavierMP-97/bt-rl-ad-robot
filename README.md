@@ -28,6 +28,9 @@ The experiment logs are included, so you can relive my journey of trial and erro
 ## 📄 Publications  
 
 **Bachelor’s Thesis**: [Deep Reinforcement Learning for Autonomous Driving](https://hdl.handle.net/10016/30350)
+
 **Master’s Thesis**: [Semantic Segmentation for Autonomous Driving using Reinforcement Learning](https://hdl.handle.net/10016/37956)
+
 **Master’s Thesis GitHub**: [mt-rl-ad-carla](https://github.com/JavierMP-97/mt-rl-ad-carla). While this version developed for CARLA was an improvement over the original project, there was still significant room for improvement and much more to learn
+
 **Carla RL**: [CARLA_RL](https://github.com/JavierMP-97/carla_rl). This is a much more refined version, designed to help students quickly start their autonomous driving projects. It provides a CARLA environment with data collection, rewards, feature extraction, and a complete pipeline to train a baseline agent.
