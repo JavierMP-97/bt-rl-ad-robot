@@ -170,7 +170,8 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 
-
+# Remove all of the heavy and unreadable logs
 *.pkl*
 *.hdf5
 *.pr
+*.txt
