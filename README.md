@@ -2,6 +2,9 @@
 
 This repository is a time capsule of my **bachelor’s thesis** in 2019, where I explored whether **Deep Reinforcement Learning (DRL)** can be a viable tool for autonomous driving. Spoiler: it’s complicated. While it doesn’t quite work in its current state, this project is a **record of my evolution in software engineering and machine learning over a year**—complete with lessons learned, experiments logged, and a fair amount of debugging-induced existential crises.  
 
+## Watch the Project in Action  
+https://github.com/user-attachments/assets/17662cb7-ba8c-4344-ad86-30212abc1564
+
 ## Project Structure  
 
 ### `initial_hw_test` – Initial Hardware & Communication Testing  
@@ -22,7 +25,9 @@ With all the knowledge gained from the previous steps, I attempted to train and 
 ## Notes  
 The experiment logs are included, so you can relive my journey of trial and error. However, the models and datasets are not included, as they are simply too large for the repository. While the project doesn’t quite work in its current form, it’s a testament to the learning process, the inevitable setbacks, and the small victories that made this journey worthwhile.
 
+## 📄 Publications  
 
-
-## 📄 Publication  
-You can find the full thesis here: [Deep Reinforcement Learning for Autonomous Driving](https://hdl.handle.net/10016/30350)
+**Bachelor’s Thesis**: [Deep Reinforcement Learning for Autonomous Driving](https://hdl.handle.net/10016/30350)
+**Master’s Thesis**: [Semantic Segmentation for Autonomous Driving using Reinforcement Learning](https://hdl.handle.net/10016/37956)
+**Master’s Thesis GitHub**: [mt-rl-ad-carla](https://github.com/JavierMP-97/mt-rl-ad-carla). While this version developed for CARLA was an improvement over the original project, there was still significant room for improvement and much more to learn
+**Carla RL**: [CARLA_RL](https://github.com/JavierMP-97/carla_rl). This is a much more refined version, designed to help students quickly start their autonomous driving projects. It provides a CARLA environment with data collection, rewards, feature extraction, and a complete pipeline to train a baseline agent.
