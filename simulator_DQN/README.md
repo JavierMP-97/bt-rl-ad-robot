@@ -17,7 +17,7 @@ A custom **reinforcement learning environment** was built on top of **Donkey Gym
 
 ## Watch the Project in Action
 
-https://github.com/user-attachments/assets/d856c912-6357-4e55-9f7e-008724c6ee72
+https://github.com/user-attachments/assets/19187a98-6404-41d5-88bd-5c7668a74a7d
 
 ## Summary
 
