@@ -3,7 +3,7 @@
 This repository is a time capsule of my **bachelor’s thesis** in 2019, where I explored whether **Deep Reinforcement Learning (DRL)** can be a viable tool for autonomous driving. Spoiler: it’s complicated. While it doesn’t quite work in its current state, this project is a **record of my evolution in software engineering and machine learning over a year**—complete with lessons learned, experiments logged, and a fair amount of debugging-induced existential crises.  
 
 ## Watch the Project in Action  
-https://github.com/user-attachments/assets/17662cb7-ba8c-4344-ad86-30212abc1564
+https://github.com/user-attachments/assets/408ef823-6845-4a45-9a21-0859d3f42b97
 
 ## Project Structure  
 
