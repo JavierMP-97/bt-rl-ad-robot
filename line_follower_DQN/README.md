@@ -62,16 +62,7 @@ Deployed on an **Arduino** connected to the robot’s **motors and infrared sens
 - Reads sensor values and transmits them to the **ESP8266**.
 - Executes movement commands received from the **DQN agent** via **TCP**.
 
-## Communication Process
-
-The robot and the server communicate via **TCP sockets**, ensuring low-latency control. The process follows these steps:
-1. The **infrared sensors** capture readings.
-2. The **ESP8266** sends the data to the **TCP server**.
-3. The **DQN agent** processes the input and selects an action.
-4. The **action is sent back** to the robot.
-5. The **Arduino executes** the movement command.
-
-## Usage
+### Usage
 
 1. **Calibrate the sensors**
    - Run `calibrate.py` while the robot is placed on the floor and the line.
