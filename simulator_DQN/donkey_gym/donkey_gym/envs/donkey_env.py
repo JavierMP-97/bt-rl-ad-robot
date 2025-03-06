@@ -44,7 +44,7 @@ class DonkeyEnv(gym.Env):
         self.thread.start()
 
         # Launch Unity environment
-        file_name = "D:\\TFG\simulator\DonkeySim.exe" # file name to identify Unity application
+        file_name = "D:\\path_to_folder\DonkeySim.exe" # file name to identify Unity application
         headless = False  # Set to True to render Unity environment. False for headless training
         platform = "windows" # linux or darwin (for MaxOS)
         
@@ -72,7 +72,7 @@ class DonkeyEnv(gym.Env):
         if close:
             self.viewer.quit()
         else:
-            self.viewer.executable_launcher("D:\\TFG\simulator\DonkeySim.exe", headless=False, platform="windows")
+            self.viewer.executable_launcher("D:\\path_to_folder\DonkeySim.exe", headless=False, platform="windows")
 
         return self.viewer.render(mode)
 
