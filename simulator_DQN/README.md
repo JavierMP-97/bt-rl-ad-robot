@@ -120,8 +120,6 @@ A **secondary Q-network** is used to compute target values, reducing Q-value ove
 - **Double Target Q-Network** improved performance but did not eliminate training instability.
 - **Speed control was inconsistent**, with the agent often approaching corners too fast.
 
-![reward_otros](https://github.com/user-attachments/assets/52adb265-4d71-4305-b7f5-366791ef4f49)
-
 ### Conclusion
 
 This phase successfully demonstrated that an RL-based agent can learn autonomous driving using images. However, several challenges emerged, highlighting the limitations of Deep Q-Learning for continuous control tasks:
