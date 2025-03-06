@@ -2,6 +2,7 @@
 file: donkey_sim.py
 author: Tawn Kramer
 date: 2018-08-31
+Edited by: Javier Moralejo
 '''
 import json
 import shutil
