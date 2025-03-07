@@ -13,37 +13,46 @@ In this phase, a fully autonomous robotic vehicle is developed and trained to na
 
 The vehicle consists of carefully selected hardware components designed to optimize performance, maintainability, and reliability in real-world scenarios.
 
-## Watch the Final Robot in Action
+## Watch the Project in Action
 
 https://github.com/user-attachments/assets/5dc00ee3-4cc8-4906-854c-d2a1b5d1aa3b
 
-## Hardware Design
+## Summary
 
-### Processor: Raspberry Pi 3B+
+### Problem Description
+
+The goal is to build a robot that, based on the knowledge of the previous stages, learns to drive in a real environment. The main challenges found when bridging the gap between simulation and training included:
+- Creting a stable robotic platform that facilitates the task
+- Develop an efficient training methodology
+- Collecting a dataset of images and training a VAE
+- Dealing with a very noisy environment, including noise from the sensors, electronics, communication and images taken
+
+The primary challenge is enabling the agent to interpret visual cues from lane markings and drive continuously without predefined rules.
+
+The objective is to train an autonomous agent capable of navigating procedural tracks for 3000 consecutive steps without exiting the road.
+
+### Hardware Design
+
+#### Processor: Raspberry Pi 3B+
 
 - Sufficient computational power for real-time inference (>10 FPS).
 - Extensive community support and readily available resources.
 
-### Motor Controller: L298N
-
-- Wide voltage support (up to 12–35 V), ensuring robustness against voltage variations.
-- Heat dissipation capabilities, ensuring reliable operation under varying current loads.
-
-### Control Interface: Arduino
+#### Control Interface: Arduino
 
 - Seamless interfacing with 5V logic sensors (IR sensors).
 - Offloading sensor polling and basic motor control loops from Raspberry Pi.
 
-### Power Source: Nickel-Metal Hydride (NiMH) Batteries
+#### Motor Controller: L298N
+
+- Wide voltage support (up to 12–35 V), ensuring robustness against voltage variations.
+- Heat dissipation capabilities, ensuring reliable operation under varying current loads.
+
+#### Power Source: Nickel-Metal Hydride (NiMH) Batteries
 
 - Enhanced safety and reduced risk compared to Li-ion batteries.
 
-### Communication
-
-- **Serial communication** between Raspberry Pi and Arduino for simplicity, reliability, and ease of debugging.
-- **Wi-Fi** for communication between Raspberry Pi and the controlling PC, ensuring wireless monitoring and command transmission.
-
-### Sensors and Actuators
+#### Sensors and Actuators
 
 - **Motors:** Two KKmoon motor-wheel sets for independent control on each side.
 - **Front wheel:** A single free-rotating wheel that, despite its carefree spinning, actually keeps things surprisingly predictable, proving that sometimes less really is more when it comes to stable, consistent steering.
@@ -52,32 +61,41 @@ https://github.com/user-attachments/assets/5dc00ee3-4cc8-4906-854c-d2a1b5d1aa3b
   - **Wide-angle camera module:** Same sensor, 160º viewing angle lens, providing greater visibility of lane markers.
 - **Infrared sensor array:** Five infrared sensors detecting black lane boundary markers, indicating vehicle proximity to lane edges.
 
-## Model Design
+#### Communication
+
+- **Serial communication** between Raspberry Pi and Arduino for simplicity, reliability, and ease of debugging.
+- **Wi-Fi** for communication between Raspberry Pi and the controlling PC, ensuring wireless monitoring and command transmission.
+
+![IMG_20190919_050358](https://github.com/user-attachments/assets/e34a2ec7-2ff1-448a-8b59-ef277091ea37)
+
+### Model Design
 
 The architecture closely mirrors the previous phase:
 
-### Image Preprocessing and Encoding (VAE)
+#### Image Preprocessing and Encoding (VAE)
 
 - **Raw images:** 160×128 pixels.
 - **Preprocessing:** Cropped to 160×80 pixels (top removed).
 - **Latent encoding:** 32-dimensional compact vector via pretrained VAE, trained specifically on the real-world images.
 
-### State Representation
+![Vae bueno malo](https://github.com/user-attachments/assets/79dd7548-12b3-466d-afa6-09e2d8c4ccd4)
+
+#### State Representation
 
 - 32-dimensional latent vector from the VAE.
 - History of the 2 most recent actions (steering, acceleration), totaling 4 additional values.
 - **Total state input:** 36-dimensional vector for SAC networks.
 
-### Action Space
+#### Action Space
 
 Continuous actions:
 
 - **Steering angle**
 - **Acceleration**
 
-Despite having small electric motors that can execute commands almost immediately, I emulated the control of a road vehicle. The agent doesn't set the speed of the motors. It sets the acceleration that will increase or decrease the actual speed. Also, steering changes are incrementally limited (±15% per tick) to produce smoother trajectories and immitate a real road vehicle.
+Despite having small electric motors that can execute commands almost immediately, I emulated the control of a road vehicle. The agent doesn't set the speed of the motors. It sets the acceleration that will increase or decrease the actual speed. Also, steering changes are limited to imitate a real road vehicle. These changes made the robot have a hard time trying to turn while going faster, making it posssible for the agent to overshoot a turn, like a real car would.
 
-## SAC Architecture
+#### SAC Architecture
 
 - **Input Layer:** 36 neurons (32 latent vector + 4 recent actions).
 - **Hidden Layers:** Two layers (32 and 16 neurons).
@@ -86,7 +104,7 @@ Despite having small electric motors that can execute commands almost immediatel
   - Critic: 1 neuron (predicted state-action value).
 - **Activation Function:** ELU for hidden layers, linear output.
 
-## Reward Model
+#### Reward Model
 
 Reward function encourages lane-centered, stable driving:
 
@@ -102,13 +120,15 @@ Reward function encourages lane-centered, stable driving:
 - **Improvements:** Started training from varied positions and orientations.
 - **Results:** Successfully navigated the corridor after only 3 training episodes of 5000 ticks each.
 
-#### 2. Lane-Following Circuit (Initial Configuration)
+##### 2. Lane-Following Circuit (Initial Configuration)
 - **Objective:** Teach the vehicle to follow a lane marked by black and white lines.
 - **Challenges:** The vehicle repeatedly failed at curves because the VAE struggled to accurately encode images.
 - **Improvements:** Increased the dataset diversity and experimented with a wide-angle camera.
-- **Results:** Despite improvements, the vehicle still couldn't consistently complete the circuit.
+- **Results:** Despite improvements, the vehicle still couldn't consistently complete the circuit. The problem found was that when the camera could only see one line of the road, the VAE sometimes "imagined" another line. This would sometimes lead to the agent to think that the road was at one side of the line, while it was in fact in the other side of the line.
 
-#### 3. Refined Lane-Following Circuit
+![linea imaginaria](https://github.com/user-attachments/assets/c0eacb41-43c8-48df-b8f3-9191f91ea502)
+
+##### 3. Refined Lane-Following Circuit
 - **Objective:** Achieve consistent lane-following by making the environment more similar to the simulator.
 - **Challenges:** Previous setups lacked clear lane differentiation and accurate sensor feedback.
 - **Improvements:**
@@ -122,11 +142,12 @@ Reward function encourages lane-centered, stable driving:
   - Delaying training start (from tick 600 to 1200) further boosted consistency, achieving success by episode 36.
   - Confirmed each improvement was necessary through systematic tests.
 
+![VAE ga](https://github.com/user-attachments/assets/9662b891-89d2-4f83-8e0d-ca65335bd19e)
 
-## Conclusions
+### Conclusions
 
-- Optimized hardware and VAE training significantly improved performance.
-- Comprehensive dataset diversity and accurate sensor integration proved essential for robust real-world autonomous driving.
+- Optimizing hardware and VAE training significantly improved performance.
+- A more diverse dataset and accurate sensor integration proved essential for robust real-world autonomous driving.
 - SAC demonstrated reliable, smooth control in complex real-world scenarios, validating its effectiveness beyond simulation.
 
-This phase represents a major milestone, successfully bridging the gap between simulation and real-world application, and marking the completion of my first complex Machine Learning and Reinforcement Learning project. The knowledge and experience gained throughout this journey have been invaluable, and the project itself has sparked my passion and drive to pursue even greater challenges in this exciting field
+This phase represents a major milestone, successfully bridging the gap between simulation and real-world application, and marking the completion of my first complex and long-term Computer Vision and Reinforcement Learning project. The knowledge and experience gained throughout this journey have been invaluable, and the project itself sparked my passion and drive to pursue even greater challenges in this exciting field.
