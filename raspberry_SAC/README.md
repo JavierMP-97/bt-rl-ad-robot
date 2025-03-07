@@ -124,7 +124,7 @@ Reward function encourages lane-centered, stable driving:
 - **Objective:** Teach the vehicle to follow a lane marked by black and white lines.
 - **Challenges:** The vehicle repeatedly failed at curves because the VAE struggled to accurately encode images.
 - **Improvements:** Increased the dataset diversity and experimented with a wide-angle camera.
-- **Results:** Despite improvements, the vehicle still couldn't consistently complete the circuit. The problem found was that when the camera could only see one line of the road, the VAE sometimes "imagined" another line. This would sometimes lead to the agent to think that the road was at one side of the line, while it was in fact in the other side of the line.
+- **Results:** Despite improvements, the vehicle still couldn't consistently complete the circuit. The problem found was that the VAE wasn't encoding information properly. Originally, both lines of the road whre the same color. When the camera could only see one line of the road, the VAE sometimes "imagined" another line. This would sometimes lead to the agent to think that the road was at one side of the line, while it was in fact on the other side of the line.
 
 ![linea imaginaria](https://github.com/user-attachments/assets/c0eacb41-43c8-48df-b8f3-9191f91ea502)
 
@@ -132,7 +132,7 @@ Reward function encourages lane-centered, stable driving:
 - **Objective:** Achieve consistent lane-following by making the environment more similar to the simulator.
 - **Challenges:** Previous setups lacked clear lane differentiation and accurate sensor feedback.
 - **Improvements:**
-  - Distinctly colored lane markings (left side: white/black, right side: red/black).
+  - Distinctly colored lane markings so the VAE and the agent learn to differentiate left and right lines. (left side: white/black, right side: red/black).
   - Wide-angle camera for better lane visibility.
   - Infrared sensors to detect lane departures precisely.
   - Increased historical command context from 2 to 20 previous actions.
