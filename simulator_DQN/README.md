@@ -130,10 +130,8 @@ This phase successfully demonstrated that an RL-based agent can learn autonomous
 - **Full-range acceleration control was unnecessary.** Limiting braking improved training efficiency.
 - **More discrete actions didn’t help.** The agent still relied on a small subset, wasting available options.
 
-Given these findings, a more robust solution is needed—one that allows continuous action spaces instead of discretized steering/acceleration and more stable training algorithms that produce consistent results.
+Given these findings, a more robust solution is needed. One that allows continuous action spaces instead of discretized steering/acceleration and more stable training algorithms that produce consistent results.
 
 This phase provided valuable insights into the limitations of DQN for autonomous driving, paving the way for more advanced reinforcement learning approaches in future phases.
 
-Beyond the technical challenges, this phase drove home some important lessons. Experiment tracking is not optional—this time, I actually logged experiments and tracked key metrics, and it turns out that writing things down works (who would have thought?). Relying on memory for hyperparameters is a fantastic way to repeat past mistakes without realizing it. Being methodical wasn’t just about organization; structured tests made it possible to isolate the real impact of each change instead of guessing what went wrong. And most importantly, never trust the training policy blindly. Just because a policy works during training doesn’t mean it will hold up when evaluated deterministically. Running tests on the deterministic policy after training was essential to understanding what the model had actually learned.
-
-
+Beyond the technical challenges, this phase drove home some important lessons. This time, I actually logged experiments and tracked key metrics, and it turns out that writing things down works (who would have thought?). Relying on memory for hyperparameters is a fantastic way to repeat past mistakes without realizing it. Being methodical wasn’t just about organization; structured tests made it possible to isolate the real impact of each change instead of guessing what went wrong. And most importantly, never trust the training policy blindly. Just because a policy works during training doesn’t mean it will hold up when evaluated deterministically. Running tests on the deterministic policy after training was essential to understanding what the model had actually learned.
