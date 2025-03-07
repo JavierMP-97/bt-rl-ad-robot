@@ -7,19 +7,19 @@ https://github.com/user-attachments/assets/408ef823-6845-4a45-9a21-0859d3f42b97
 
 ## Project Structure  
 
-### `initial_hw_test` – Initial Hardware & Communication Testing  
+### ([`initial_hw_test`](https://github.com/JavierMP-97/bt-rl-ad-robot/tree/main/initial_hw_test)) – Initial Hardware & Communication Testing  
 Before jumping into the fancy AI stuff, I had to make sure the hardware didn’t catch fire. This step involved setting up microcontrollers, sensors, and communication protocols, testing interactions between Arduino, NodeMCU, TCP connections, HTTP requests, and I2C devices.  
 
-### `line_follower_DQN` – Line Following with DQN  
+### ([`line_follower_DQN`](https://github.com/JavierMP-97/bt-rl-ad-robot/tree/main/line_follower_DQN)) – Line Following with DQN  
 My first attempt at Deep Q-Learning: an agent learns to follow a line using an infrared sensor. This was also my first DQN implementation, where I quickly learned that **experiment tracking is not optional**. Trying to remember every configuration and tweak I made was like reconstructing a crime scene without security footage.  
 
-### `simulator_DQN` – Advanced DQN in Simulation  
-At this point, I dove deep into improving my DQN implementation by testing different ideas, sometimes breaking more things than I fixed. I experimented with variations like dueling Q-networks and double deep Q-networks, played around with preprocessing techniques like Canny edge detection, and fine-tuned the reward function to see how much better the agent could learn. With each iteration, I gained a deeper appreciation for how small changes could have a big impact, or no impact at all, which was equally frustrating.  
+### ([`simulator_DQN`](https://github.com/JavierMP-97/bt-rl-ad-robot/tree/main/simulator_DQN)) – Advanced DQN in Simulation  
+This stage is based on the **Donkey Gym** implementation by **Tawn Kramer** ([GitHub Repo](https://github.com/tawnkramer/gym-donkeycar.git)) and the **reinforcement learning work of Felix Yu** ([Project](https://flyyufelix.github.io/2018/09/11/donkey-rl-simulation.html)). At this point, I dove deep into improving my DQN implementation by testing different ideas, sometimes breaking more things than I fixed. I experimented with variations like dueling Q-networks and double deep Q-networks, played around with preprocessing techniques like Canny edge detection, and fine-tuned the reward function to see how much better the agent could learn. With each iteration, I gained a deeper appreciation for how small changes could have a big impact, or no impact at all, which was equally frustrating. However, this stage wasn't successful, and I had to improve my results in the following stage.
 
-### `simulator_SAC` – Soft Actor-Critic with an Improved Implementation  
-This step was based on **[Learning to Drive Smoothly in Minutes](https://github.com/araffin/learning-to-drive-in-5-minutes/)**, which I modified using everything I had learned in the previous phase. Instead of relying on DQN, I transitioned to Soft Actor-Critic (SAC) to explore whether it could provide better stability and sample efficiency in a simulated driving environment.  
+### ([`simulator_SAC`](https://github.com/JavierMP-97/bt-rl-ad-robot/tree/main/simulator_SAC)) – Soft Actor-Critic with an Improved Implementation  
+This step was based on **[Learning to Drive Smoothly in Minutes](https://github.com/araffin/learning-to-drive-in-5-minutes/)**, which I modified using everything I had learned in the previous stage. Instead of relying on DQN, I transitioned to Soft Actor-Critic (SAC) to explore whether it could provide better stability and sample efficiency in a simulated driving environment.  
 
-### `raspberry_SAC` – Deployment on a Real-World Model Car  
+### ([`raspberry_SAC`](https://github.com/JavierMP-97/bt-rl-ad-robot/tree/main/raspberry_SAC)) – Deployment on a Real-World Model Car  
 With all the knowledge gained from the previous steps, I attempted to train and deploy a reinforcement learning agent on a real, scaled-down self-driving car. Running on a Raspberry Pi with a camera as its only sensor, the goal was to translate everything I had learned in simulation into the real world. A task that, unsurprisingly, proved to be a lot harder than it sounded on paper.  
 
 ## Notes  
