@@ -87,7 +87,7 @@ Additionally, steering commands are limited to incremental adjustments of **±15
 
 The compact architecture allows efficient real-time inference suitable for deployment on limited hardware.
 
-### Reward Model
+#### Reward Model
 
 The reward function encourages smooth and centered driving behavior:
 
@@ -117,8 +117,8 @@ The **Stable Baselines** library provides the SAC implementation, facilitating s
 
 #### SAC Performance Highlights
 
-- **Rapid training convergence:** Agent consistently reaches stable driving within **30–120 episodes**.
-- **Robust to hyperparameter variations:** Performance remained stable despite considerable hyperparameter adjustments.
+- **SAC offered rapid training convergence:** Agent consistently reaches stable driving within **30–120 episodes**.
+- **SAC is robust to hyperparameter variations:** Performance remained stable despite considerable hyperparameter adjustments.
 - **VAE-based encoding** proved critical to training stability. Direct convolutional encoding without a VAE resulted in instability comparable to DQN.
 - Allowing reverse acceleration led to overly cautious policies, emphasizing careful action-space definition.
 - Lowering the **CTE_max** improved lane-centering without reducing overall performance.
