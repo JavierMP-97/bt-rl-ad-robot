@@ -133,7 +133,7 @@ Initially tested with **HTTP**, but later switched to **TCP sockets** for faster
 
 ## Conclusion
 
-This stage wrapped up successfully, laying the groundwork for the entire project. It validated the hardware and communication setup, ensured the training implementation worked, and—most importantly—proved that the robot could learn to follow a line instead of wandering off like a confused Roomba.
+This stage wrapped up successfully, laying the groundwork for the entire project. It validated the hardware and communication setup, ensured the training implementation worked, and proved that the robot could learn to follow a line instead of wandering off like a confused Roomba.
 
 One crucial lesson learned: track every experiment meticulously. While trial and error is great for reinforcement learning, it turns out humans don't have experience replay built-in. Remembering every configuration and hyperparameter tweak is impossible, so proper logging became a must. Otherwise, every experiment starts feeling like Déjà Vu.
 
