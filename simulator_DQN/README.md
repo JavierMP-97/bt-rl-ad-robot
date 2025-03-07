@@ -71,7 +71,7 @@ Each state consists of a **3-frame stack** of processed images. The model option
 
 The model is optimized for real-time execution, achieving **25 FPS on a Raspberry Pi 3B**.
 
-### Reward Model
+#### Reward Model
 
 The reward function is based on the **Cross-Track Error (CTE)**, which measures the car's distance from the center of the lane:
 
