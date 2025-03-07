@@ -21,15 +21,15 @@ https://github.com/user-attachments/assets/5dc00ee3-4cc8-4906-854c-d2a1b5d1aa3b
 
 ### Problem Description
 
-The goal is to build a robot that, based on the knowledge of the previous stages, learns to drive in a real environment. The main challenges found when bridging the gap between simulation and training included:
+The goal is to build a robot that learns to drive in a real environment, following a road delimited on the floor with 2 lines of tape. The main challenges found when bridging the gap between simulation and training included:
 - Creting a stable robotic platform that facilitates the task
 - Develop an efficient training methodology
 - Collecting a dataset of images and training a VAE
 - Dealing with a very noisy environment, including noise from the sensors, electronics, communication and images taken
 
-The primary challenge is enabling the agent to interpret visual cues from lane markings and drive continuously without predefined rules.
+The final task that the agent must achieve is to drive along an evaluation road from start to end.
 
-The objective is to train an autonomous agent capable of navigating procedural tracks for 3000 consecutive steps without exiting the road.
+![IMG_20190919_045832](https://github.com/user-attachments/assets/a8e3c2bd-8495-4049-8cd3-a7bd93ce4c89)
 
 ### Hardware Design
 
