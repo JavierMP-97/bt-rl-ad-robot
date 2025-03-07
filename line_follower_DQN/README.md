@@ -89,20 +89,20 @@ The task involves developing a **self-learning robotic vehicle** that can autono
 - Optimize its movement efficiency.
 - Complete a full lap around the circuit
 
-
 ![IMG_20190919_045909](https://github.com/user-attachments/assets/ab1073b0-aca2-41d4-9b23-1d51c9752f04)
 
+### Model Design
 
-### State Representation
+#### State Representation
 - 5 continious values to represent the state of each sensor
 - Last detected sensor (values that goes from -1 to 1, depending on which was the last IR sensor detected)
 
 The last detected sensor helps the agent **recover** when it loses track of the line.
 
-### Action Space
+#### Action Space
 - 7 actions that allow for granular turning options
 
-### Reward Model
+#### Reward Model
 - **+15** if the center sensor detects the line.
 - **+10** if an inner sensor detects it.
 - **+5** if an outer sensor detects it.
@@ -126,12 +126,12 @@ Before training the **DQN agent**, a **rule-based agent** is used to generate a 
 #### 5. TCP-Based Low-Latency Communication
 Initially tested with **HTTP**, but later switched to **TCP sockets** for faster message exchange. This ensures minimal delay between **sensor readings and action execution**.
 
-## Experimental Results
+### Experimental Results
 - **Experience Replay** was essential; without it, the agent failed to complete the track.
 - **Double Target Q-Network** improved stability but did not drastically outperform the default setup.
 - **Using a deeper network** improved learning, but **the DQN was highly sensitive to hyperparameters**.
 
-## Conclusion
+### Conclusion
 
 This stage wrapped up successfully, laying the groundwork for the entire project. It validated the hardware and communication setup, ensured the training implementation worked, and proved that the robot could learn to follow a line instead of wandering off like a confused Roomba.
 
